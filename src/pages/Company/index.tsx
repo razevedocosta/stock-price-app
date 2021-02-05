@@ -105,7 +105,7 @@ const Company: React.FC = () => {
                 <div>
                     <strong>News</strong>
                     {news.map(newsItem => (
-                        <a key={newsItem.datetime} href={newsItem.url} target="_blank">
+                        <a key={newsItem.datetime} href={newsItem.url}>
                             <span>{newsItem.headline}</span>
                         </a>
                     ))}

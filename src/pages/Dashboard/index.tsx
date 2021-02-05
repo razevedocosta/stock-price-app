@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
             const company = response.data;
 
             // verificar se a companhia ja foi inserida
-            const companyItem = repositories.findIndex(company => company.symbol == newRepo.toLocaleUpperCase())
+            const companyItem = repositories.findIndex(company => company.symbol === newRepo.toLocaleUpperCase())
 
             if (companyItem < 0) {
                 company.logo = logo.data.url
