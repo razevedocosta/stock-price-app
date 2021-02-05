@@ -22,7 +22,7 @@ export const Header = styled.header`
     }
 `;
 
-export const RepositoryInfo = styled.section`
+export const CompanyInfo = styled.section`
     margin-top: 40px;
 
     header {
@@ -33,6 +33,7 @@ export const RepositoryInfo = styled.section`
             width: 120px;
             height: 120px;
             border-radius: 50%;
+            background: center;
         }
 
         div {
@@ -44,7 +45,7 @@ export const RepositoryInfo = styled.section`
             }
 
             p {
-                font-size: 14px;
+                font-size: 16px;
                 color: #737380;
                 margin-top: 4px;
             }
@@ -63,63 +64,55 @@ export const RepositoryInfo = styled.section`
 
             strong {
                 display: block;
-                font-size: 28px;
+                font-size: 22px;
                 color: #3d3d4d;
             }
 
             span {
                 display: block;
                 margin: 4px 0;
-                color: #6c6c80;
+                color: #462A99; //roxo
             }
         }
     }
 `;
 
-export const Issues = styled.div`
+export const Card = styled.div`
     margin-top: 40px;
+    width: 800px;
+    height: auto;
+    padding: 10px 0;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #A8A8B3;
 
-    a {
-        background: #FFF;
-        border-radius: 5px;
-        width: 100%;
-        padding: 12px;
-        display: block;
-        text-decoration: none;
+    div {
+        margin: 0 16px;
+        padding-top: 10px;
+        flex: 1;
 
-        display: flex;
-        align-items: center;
-        transition: transform 0.2s;
-
-        & + a {
-            margin-top: 16px;
-        }
-
-        &:hover {
-            transform: translateX(10px);
-        }
-
-        div {
-            margin: 0 16px;
-            flex: 1;
-
-            strong {
-                font-size: 20px;
-                color: #3D3D4D;
-            }
-
-            p {
-                font-size: 18px;
-                color: #A8A8B3;
-                margin-top: 4px;
-            }
-        }
-
-        svg {
-            margin-left: auto;
+        strong {
+            font-size: 16px;
             color: #3D3D4D;
+            display: block;
+            margin-bottom: 10px;
         }
 
+        a {
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 18px;
+            color: #3D3D4D;
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.2s;
+
+            &:hover {
+                color: #0047BB;
+            }
+        }
 
     }
+    
 `;

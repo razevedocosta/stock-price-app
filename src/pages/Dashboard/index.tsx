@@ -3,17 +3,13 @@ import { FiChevronRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
-import logoImg from '../../assets/github-logo.svg';
-
 import { Title, Form, Repositories, Error } from './styles';
 
-interface Repository {
-    full_name: string;
-    description: string;
-    owner: {
-        login: string;
-        avatar_url: string; 
-    };
+interface Company {
+    symbol: string;
+    companyName: string;
+    latestPrice: number;
+    logo: string;
 }
 
 const Dashboard: React.FC = () => {
@@ -21,8 +17,8 @@ const Dashboard: React.FC = () => {
     const [inputError, setInputError] = useState('');
     
     // Listando do localStorage
-    const [repositories, setRepositories] = useState<Repository[]>(() => {
-        const storagedRepositories = localStorage.getItem('@GithubExplorer:repositories');
+    const [repositories, setRepositories] = useState<Company[]>(() => {
+        const storagedRepositories = localStorage.getItem('@FindThePrice:stock');
 
         if (storagedRepositories) {
             return JSON.parse(storagedRepositories);
@@ -33,38 +29,57 @@ const Dashboard: React.FC = () => {
 
     // Salvando no localStorage
     useEffect(() => {
-        localStorage.setItem('@GithubExplorer:repositories', JSON.stringify(repositories));
+        localStorage.setItem('@FindThePrice:stock', JSON.stringify(repositories));
     }, [repositories]);
     
+    async function handleClearAll(event: FormEvent<HTMLButtonElement>) {
+        event.preventDefault();
+
+        setRepositories([]);
+        setNewRepo('');
+        setInputError('');
+    }
+
     // Função de buscar repositório
     async function handleAddRepository(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         
         if (!newRepo) {
-            setInputError('Digite autor/nome do repositório');
+            setInputError('Find a valid stock name');
             return;
         }
 
         try {
-            const response = await api.get(`repos/${newRepo}`);
+            const [ response, logo ] = await Promise.all([
+                api.get(`stock/${newRepo}/quote?token=sk_d04c921978824c95b7716113460f2d79`),
+                api.get(`stock/${newRepo}/logo?token=sk_d04c921978824c95b7716113460f2d79`),
+            ]); 
 
-            const repository = response.data;
+            const company = response.data;
 
-            setRepositories([...repositories, repository]);
-            setNewRepo('');
-            setInputError('');
+            // verificar se a companhia ja foi inserida
+            const companyItem = repositories.findIndex(company => company.symbol == newRepo.toLocaleUpperCase())
+
+            if (companyItem < 0) {
+                company.logo = logo.data.url
+                setRepositories([...repositories, company]);
+                setNewRepo('');
+                setInputError('');
+            } else {
+                setInputError('Stock already exists');
+                return;
+            }
         } catch (err) {
-            setInputError('Erro ao buscar o repositório');
+            setInputError('Name does not exists');
         }
     }
 
     return (
         <>
-            <img src={logoImg} alt="Github Explorer" />
-            <Title>Explore repositórios no Github</Title>
+            <Title>Search Stock Price</Title>
 
             <Form hasError={!!inputError} onSubmit={handleAddRepository}>
-                <input placeholder="Digite o nome do repositório"
+                <input placeholder="Search Stock ex: aapl"
                        value={newRepo} 
                        onChange={(e) => setNewRepo(e.target.value)}
                 />
@@ -74,14 +89,18 @@ const Dashboard: React.FC = () => {
             { inputError && <Error>{inputError}</Error> }
 
             <Repositories>
+                { repositories.length > 0 ? <button onClick={handleClearAll}>Limpar</button> : '' }
+
                 {repositories.map(repository => (
-                  <Link key={repository.full_name} to={`/repository/${repository.full_name}`}>
-                    <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+                  <Link key={repository.symbol} to={`/company/${repository.symbol}`}>
+                    <img src={repository.logo} alt={repository.companyName}></img>
 
                     <div>
-                        <strong>{repository.full_name}</strong>
-                        <p>{repository.description}</p>
+                        <strong>{repository.companyName}</strong>
+                        <p>{repository.symbol}</p>
                     </div>
+
+                    <p>US$ {repository.latestPrice}</p>
 
                     <FiChevronRight size={20} />
                   </Link>
