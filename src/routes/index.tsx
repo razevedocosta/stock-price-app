@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Company from '../pages/Company';
@@ -12,9 +12,6 @@ const Routes: React.FC = () => {
     // const { signed } = useContext(AuthContext);
 
     return (
-        // signed ? <h1>ok</h1> : 
-        // <Login />
-
         <Switch>
             <Route path="/" exact component={Login} />
             <Route path="/dashboard" exact component={Dashboard} />
