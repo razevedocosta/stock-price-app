@@ -1,9 +1,10 @@
-import React, { useState, useEffect, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent, useContext } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import api from '../../services/api';
 
+import api from '../../services/api';
 import { Title, Form, Repositories, Error } from './styles';
+import AuthContext from '../../contexts/auth';
 
 interface Company {
     symbol: string;
@@ -15,6 +16,12 @@ interface Company {
 const Dashboard: React.FC = () => {
     const [newRepo, setNewRepo] = useState('');
     const [inputError, setInputError] = useState('');
+
+    const { signOut } = useContext(AuthContext);
+
+    function handleSignOut() {
+        signOut();
+    }
     
     // Listando do localStorage
     const [repositories, setRepositories] = useState<Company[]>(() => {
@@ -77,6 +84,7 @@ const Dashboard: React.FC = () => {
     return (
         <>
             <Title>Search Stock Price</Title>
+            <button onClick={handleSignOut}></button>
 
             <Form hasError={!!inputError} onSubmit={handleAddRepository}>
                 <input placeholder="Search Stock ex: aapl"
