@@ -99,6 +99,11 @@ export const Card = styled.div`
             margin-bottom: 10px;
         }
 
+        strong::before {
+            content: "🟊";
+            margin-right: 8px;
+        }
+
         a {
             text-decoration: none;
             font-size: 14px;
@@ -111,7 +116,49 @@ export const Card = styled.div`
             &:hover {
                 color: #0047BB;
             }
+        
+        div {
+            font-size: 12px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: row;
+
+            img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                box-shadow: 2px 2px 2px #A8A8B3;
+            }
+
+            p {
+                display: block;
+                font-size: 14px;
+                font-weight: bold;
+                color: #000;
+                margin-bottom: 4px;
+            }
+
+            span {
+                overflow: hidden;
+                display: block;
+                max-height: 40px;
+
+                display: flex;
+                flex: 1;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
+
+        }
+
+        
 
     }
     

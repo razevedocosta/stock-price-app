@@ -3,6 +3,7 @@ interface Response {
     user: {
         name: string;
         email: string;
+        password: string;
     };
 }
 
@@ -13,7 +14,8 @@ export function signIn(): Promise<Response> {
                 token: 'asdqwe#',
                 user: {
                     name: 'Rodrigo',
-                    email: 'rodrigo@email.com'
+                    email: 'rodrigo@email.com',
+                    password: '123456',
                 },
             });
         }, 1000);

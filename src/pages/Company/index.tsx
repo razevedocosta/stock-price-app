@@ -30,6 +30,8 @@ interface CompanyNews {
     datetime: string;
     headline: string;
     url: string;
+    summary: string;
+    image: string;
 }
 
 const Company: React.FC = () => {
@@ -53,15 +55,26 @@ const Company: React.FC = () => {
         });
     }, [params.company]);
 
+    // async function loadData(): Promise<void> {
+    //     const [ company, logo, news ] = await Promise.all([
+    //         api.get(`stock/${params.company}/quote?token=sk_d04c921978824c95b7716113460f2d79`),
+    //         api.get(`stock/${params.company}/logo?token=sk_d04c921978824c95b7716113460f2d79`),
+    //         api.get(`stock/${params.company}/news?token=sk_d04c921978824c95b7716113460f2d79`)
+    //     ]);
+
+    //     setRepository(company.data);
+    // }
+    // loadData();
+
     return (
         <>
             <Header>
-                <Link to="/">
+                <Link to="/dashboard">
                     <FiChevronLeft size={16} /> Voltar
                 </Link>
             </Header>
 
-            { company && (
+            {company && (
                 <CompanyInfo>
                     <header>
                         <img src={logo?.url} alt={company.companyName}></img>
@@ -104,13 +117,21 @@ const Company: React.FC = () => {
             <Card>
                 <div>
                     <strong>News</strong>
-                    {news.map(newsItem => (
-                        <a key={newsItem.datetime} href={newsItem.url}>
-                            <span>{newsItem.headline}</span>
-                        </a>
-                    ))}
+                    <>
+                        {news.map(newsItem => (
+                            <a key={newsItem.datetime} href={newsItem.url} target="_blank" rel="noreferrer">
+                                <div>
+                                    <img src={newsItem.image} alt="Imagem"></img>
+
+                                    <div>
+                                        <p>{newsItem.headline} ({new Date(newsItem.datetime).toLocaleDateString('pt-BR')})</p>
+                                        <span>{newsItem.summary}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        ))}
+                    </>
                 </div>
-                {/* <FiChevronRight size={20} /> */}
             </Card>
         </>
     );

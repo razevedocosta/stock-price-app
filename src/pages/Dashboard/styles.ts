@@ -5,14 +5,34 @@ interface FormProps {
     hasError: boolean;
 }
 
-export const Title = styled.h1`
+export const Title = styled.div`
     max-width: 700px;
     margin: 0 auto;
     margin-top: 20px;
+    margin-bottom: 20px;
 
-    line-height: 46px;
-    font-size: 20px;
-    color: #3A3A3A;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        line-height: 46px;
+        font-size: 20px;
+        color: #3A3A3A;
+    }
+
+    div {
+        a {
+            text-decoration: none;
+            color: #A8A8B3;
+            margin-left: 10px;
+            
+            &:hover {
+                color: #3D3D4D;
+            }
+        }
+    }
+
 `;
 
 export const Form = styled.form<FormProps>`
@@ -125,7 +145,6 @@ export const Repositories = styled.div`
         p {
             color: #3D3D4D;
         }
-
 
     }
 `;
