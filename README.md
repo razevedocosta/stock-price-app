@@ -1,7 +1,9 @@
 # Stock Price App
 Aplicação desenvolvida utilizando typescript/react para consultar informações sobre ações americanas
 
-![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/home.png)
+![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/login.png)
+
+![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/dashboard.png)
 
 ![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/company.png)
 
@@ -11,8 +13,8 @@ Aplicação desenvolvida utilizando typescript/react para consultar informaçõe
 - **yarn start** para rodar a aplicação e acessar pelo navegador
 
 **Funcionalidades:**
-- consulta a api externa (https://iexcloud.io/)
-- listagem de stocks e notícias
+- consulta à api externa (https://iexcloud.io/)
+- busca por ações e listagem de notícias
 - tratamento de erros do input
 - plotagem do preço usando recharts (http://recharts.org/en-US)
 - navegação entre rotas
@@ -23,3 +25,5 @@ Aplicação desenvolvida utilizando typescript/react para consultar informaçõe
 - ajustes de layout para versão mobile (react native)
 - exibir preços atualizados, variação percentual, banner de cotação
 - selecionar intervalos para exibição no gráfico (dia, semana, mês, ano)
+- páginas de Meu Perfil e Configurações
+- funcionalidade de login/logout e cadastro de usuário
