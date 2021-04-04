@@ -9,7 +9,6 @@ import SignUp from '../pages/SignUp';
 const Routes: React.FC = () => {
 
     return (
-
         <Switch>
             <Route path="/" exact component={Login} />
             <Route path="/dashboard" exact component={Dashboard} />

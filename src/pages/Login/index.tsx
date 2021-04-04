@@ -16,7 +16,6 @@ const Login: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
 
     const handleSubmit = useCallback(async (data: object) => {
-        console.log('asd');
         try {
             formRef.current?.setErrors({});
 
