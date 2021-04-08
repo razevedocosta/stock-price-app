@@ -25,7 +25,7 @@ export function Summary() {
             });
     }, []);
 
-    const ordersBuy = orders.filter(order => order.type == "buy");
+    const ordersBuy = orders.filter(order => order.type === "buy");
     const coast = ordersBuy.map(order => order.price).reduce((prev, item) => prev + item, 0);
     const value = ordersBuy.map(order => order.price * 5).reduce((prev, item) => prev + item, 0);
 
