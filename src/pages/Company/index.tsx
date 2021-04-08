@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
-import { FiChevronLeft } from 'react-icons/fi';
+import { FiPlusCircle } from 'react-icons/fi';
+import { FiLogOut, FiSettings, FiUser, FiBookOpen } from 'react-icons/fi';
+import Modal from "react-modal";
 
 import api from '../../services/api';
 
 // import logoImg from '../../assets/github-logo.svg';
-import { Header, CompanyInfo, Card } from './styles';
+import { Title, CompanyInfo, Card } from './styles';
 import Chart from '../Chart';
+import { NewOrderModal } from '../../components/NewOrderModal';
+
+Modal.setAppElement('#root');
 
 interface RepositoryParams {
     company: string;
@@ -55,6 +60,16 @@ const Company: React.FC = () => {
         });
     }, [params.company]);
 
+    const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
+
+    function handleOpenNewTransactionModal() {
+        setIsNewTransactionModalOpen(true);
+    }
+
+    function handleCloseNewTransactionModal() {
+        setIsNewTransactionModalOpen(false);
+    }
+
     // async function loadData(): Promise<void> {
     //     const [ company, logo, news ] = await Promise.all([
     //         api.get(`stock/${params.company}/quote?token=sk_d04c921978824c95b7716113460f2d79`),
@@ -68,22 +83,36 @@ const Company: React.FC = () => {
 
     return (
         <>
-            <Header>
+            {/* <Header>
                 <Link to="/dashboard">
                     <FiChevronLeft size={16} /> Voltar
                 </Link>
-            </Header>
+            </Header> */}
+
+            <Title>
+                <Link to="/dashboard">
+                    Voltar
+                </Link>
+
+                <div>
+                    <Link to="/orders" title="Orders"> <FiBookOpen size={20} /></Link>
+                    <Link to="/" title="Settings"> <FiSettings size={20} /></Link>
+                    <Link to="/" title="Profile"> <FiUser size={20} /></Link>
+                    <Link to="/" title="Logout"> <FiLogOut size={20} /></Link>
+                </div>
+            </Title>
 
             {company && (
                 <CompanyInfo>
                     <header>
-                        <img src={logo?.url} alt={company.companyName}></img>
-
                         <div>
-                            <strong>{company.companyName}</strong>
-                            <p>US$ {company.latestPrice}</p>
+                            <img src={logo?.url} alt={company.companyName}></img>
+                            <strong>{company.companyName}<br/>US$ {company.latestPrice}</strong>
                         </div>
+
+                        <button onClick={handleOpenNewTransactionModal}><FiPlusCircle /> Order</button>
                     </header>
+
                     <ul>
                         <li>
                             <strong>{company.marketCap}</strong>
@@ -94,10 +123,13 @@ const Company: React.FC = () => {
                             <span>Ratio</span>
                         </li>
                         <li>
+                            <strong>{company.latestPrice}</strong>
+                            <span>Latest Price</span>
+                        </li>
+                        <li>
                             <strong>{company.week52High}</strong>
                             <span>Week 52 High</span>
                         </li>
-
                         <li>
                             <strong>{company.week52Low}</strong>
                             <span>Week 52 Low</span>
@@ -133,6 +165,11 @@ const Company: React.FC = () => {
                     </>
                 </div>
             </Card>
+
+            <NewOrderModal
+                isOpen={isNewTransactionModalOpen}
+                onRequestClose={handleCloseNewTransactionModal}
+            />
         </>
     );
 }

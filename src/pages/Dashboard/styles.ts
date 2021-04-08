@@ -5,36 +5,6 @@ interface FormProps {
     hasError: boolean;
 }
 
-export const Title = styled.div`
-    max-width: 700px;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    h1 {
-        line-height: 46px;
-        font-size: 20px;
-        color: #3A3A3A;
-    }
-
-    div {
-        a {
-            text-decoration: none;
-            color: #A8A8B3;
-            margin-left: 10px;
-            
-            &:hover {
-                color: #3D3D4D;
-            }
-        }
-    }
-
-`;
-
 export const Form = styled.form<FormProps>`
     margin-top: 10px;
     max-width: 700px;
@@ -159,3 +129,4 @@ export const Error = styled.span`
     font-weight: normal;
     font-size: 14px;
 `;
+

@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,22 +27,56 @@ export const Header = styled.header`
     }
 `;
 
+export const Title = styled.div`
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+        text-decoration: none;
+        color: #A8A8B3;
+        margin-left: 10px;
+
+        &:first-child {
+            margin-left: -5px;
+        }
+        
+        &:hover {
+            color: #3D3D4D;
+        }
+    }
+
+`;
+
 export const CompanyInfo = styled.section`
-    margin-top: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     header {
+        max-width: 700px;
         display: flex;
         align-items: center;
-
-        img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: center;
-        }
+        justify-content: space-between;
 
         div {
-            margin-left: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                background: center;
+                margin-right: 24px;
+            }
 
             strong {
                 font-size: 24px;
@@ -50,6 +89,33 @@ export const CompanyInfo = styled.section`
                 margin-top: 4px;
             }
         }
+
+        button {
+            width: auto;
+            height: 42px;
+            padding: 0 10px;
+            background: #0047BB;
+            border-radius: 0.25rem;
+            border: 0;
+
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+
+            transition: filter 0.2s;
+
+            &:hover {
+                filter: brightness(0.9);
+            }
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                margin-right: 10px;
+            }
+        }
     }
 
     ul {
@@ -59,17 +125,19 @@ export const CompanyInfo = styled.section`
 
         li {
             & + li {
-                margin-left: 80px;
+                margin-left: 44px;
             }
 
             strong {
                 display: block;
-                font-size: 22px;
+                font-size: 20px;
                 color: #3d3d4d;
             }
 
             span {
-                display: block;
+                display: inline-block;
+                width: 100px;
+                font-size: 14px;
                 margin: 4px 0;
                 color: #462A99; //roxo
             }
@@ -78,10 +146,12 @@ export const CompanyInfo = styled.section`
 `;
 
 export const Card = styled.div`
-    margin-top: 40px;
-    width: 800px;
-    height: auto;
-    padding: 10px 0;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    
     background: #fff;
     border: 1px solid #fff;
     border-radius: 5px;

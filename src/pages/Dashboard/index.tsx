@@ -1,9 +1,12 @@
 import React, { useState, useEffect, FormEvent } from 'react';
-import { FiChevronRight, FiLogOut, FiSettings, FiUser } from 'react-icons/fi';
+import { FiChevronRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+import { Header } from '../../components/Header';
+import { Summary } from '../../components/Summary';
+
 import api from '../../services/api';
-import { Title, Form, Repositories, Error } from './styles';
+import { Form, Repositories, Error } from './styles';
 
 interface Company {
     symbol: string;
@@ -76,15 +79,9 @@ const Dashboard: React.FC = () => {
 
     return (
         <>
-            <Title>
-                <h1>Search Stock Price</h1>
+            <Header />
 
-                <div>
-                    <Link to="/" title="Configurações"> <FiSettings size={20} /></Link>
-                    <Link to="/" title="Meu Perfil"> <FiUser size={20} /></Link>
-                    <Link to="/" title="Logout"> <FiLogOut size={20} /></Link>
-                </div>
-            </Title>
+            <Summary />
 
             <Form hasError={!!inputError} onSubmit={handleAddRepository}>
                 <input placeholder="Search Stock ex: aapl"

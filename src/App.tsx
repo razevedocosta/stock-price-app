@@ -11,7 +11,7 @@ const App: React.FC = () => {
           <Routes />
         </BrowserRouter>
 
-      <GlobalStyle />  
+        <GlobalStyle />  
     </>
   )
 };

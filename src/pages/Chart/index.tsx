@@ -39,7 +39,7 @@ const PriceChart: React.FC = () => {
 
     return (
       <>
-      <AreaChart width={700} height={300} data={data[0]}>
+      <AreaChart width={600} height={300} data={data[0]}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
