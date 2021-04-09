@@ -8,7 +8,7 @@ export const Content = styled.div`
     max-width: 700px;
     margin: 0 auto;
 
-    padding: 2rem 0;
+    padding: 2rem 1rem;
 
     display: flex;
     align-items: center;

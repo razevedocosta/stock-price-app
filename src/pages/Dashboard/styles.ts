@@ -9,6 +9,7 @@ export const Form = styled.form<FormProps>`
     margin-top: 10px;
     max-width: 700px;
     margin: 0 auto;
+    padding: 0 1rem;
 
     display: flex;
 
@@ -51,6 +52,7 @@ export const Repositories = styled.div`
     margin-top: 40px;
     max-width: 700px;
     margin: 0 auto;
+    padding: 0 1rem;
 
     button {
         border: 0;

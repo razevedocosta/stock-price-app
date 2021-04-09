@@ -58,9 +58,15 @@ export const CompanyInfo = styled.section`
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    padding: 1rem;
 
     header {
         max-width: 700px;
+        background: var(--shape);
+        border-radius: 0.25rem;
+        margin-top: -4rem;
+        padding: 0.5rem;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -71,22 +77,17 @@ export const CompanyInfo = styled.section`
             justify-content: center;
             
             img {
-                width: 120px;
-                height: 120px;
+                width: 5rem;
+                height: 5rem;
                 border-radius: 50%;
+                box-shadow: 1px 1px 1px #A8A8B3;
                 background: center;
                 margin-right: 24px;
             }
 
             strong {
-                font-size: 24px;
-                color: #3d3d4d;
-            }
-
-            p {
                 font-size: 16px;
-                color: #737380;
-                margin-top: 4px;
+                color: #3d3d4d;
             }
         }
 

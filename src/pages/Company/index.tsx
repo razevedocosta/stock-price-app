@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useRouteMatch, Link } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import { FiPlusCircle } from 'react-icons/fi';
-import { FiLogOut, FiSettings, FiUser, FiBookOpen } from 'react-icons/fi';
 import Modal from "react-modal";
 
 import api from '../../services/api';
 
 // import logoImg from '../../assets/github-logo.svg';
-import { Title, CompanyInfo, Card } from './styles';
+import { CompanyInfo, Card } from './styles';
 import Chart from '../Chart';
+import { Header } from '../../components/Header';
 import { NewOrderModal } from '../../components/NewOrderModal';
 
 Modal.setAppElement('#root');
@@ -83,24 +83,7 @@ const Company: React.FC = () => {
 
     return (
         <>
-            {/* <Header>
-                <Link to="/dashboard">
-                    <FiChevronLeft size={16} /> Voltar
-                </Link>
-            </Header> */}
-
-            <Title>
-                <Link to="/dashboard">
-                    Voltar
-                </Link>
-
-                <div>
-                    <Link to="/orders" title="Orders"> <FiBookOpen size={20} /></Link>
-                    <Link to="/" title="Settings"> <FiSettings size={20} /></Link>
-                    <Link to="/" title="Profile"> <FiUser size={20} /></Link>
-                    <Link to="/" title="Logout"> <FiLogOut size={20} /></Link>
-                </div>
-            </Title>
+            <Header />
 
             {company && (
                 <CompanyInfo>
