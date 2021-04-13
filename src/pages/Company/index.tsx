@@ -106,10 +106,6 @@ const Company: React.FC = () => {
                             <span>Ratio</span>
                         </li>
                         <li>
-                            <strong>{company.latestPrice}</strong>
-                            <span>Latest Price</span>
-                        </li>
-                        <li>
                             <strong>{company.week52High}</strong>
                             <span>Week 52 High</span>
                         </li>

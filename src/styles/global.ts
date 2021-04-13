@@ -39,7 +39,7 @@ export default createGlobalStyle`
     }
 
     body, input, button {
-        font: 16px 'Roboto Slab', sans-serif;
+        font: 16px 'Quicksand', sans-serif;
     }
 
     button {

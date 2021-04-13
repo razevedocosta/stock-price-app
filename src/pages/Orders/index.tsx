@@ -2,10 +2,11 @@ import React from 'react';
 import axios from 'axios';
 
 import { useState, useEffect } from 'react';
-import { FiLogOut, FiSettings, FiUser, FiBookOpen } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
 
-import { Title, Container } from './styles';
+import { Header } from '../../components/Header';
+import { Summary } from '../../components/Summary';
+
+import { Container } from './styles';
 
 interface OrderParams {
     id: number;
@@ -28,23 +29,9 @@ const Orders: React.FC = () => {
 
     return (
         <>
-            <Title>
-            {/* <h1>Search Stock Price</h1> */}
-                <Link to="/dashboard">
-                    Voltar
-                </Link>
-
-                <div>
-                    <Link to="/orders" title="Orders"> <FiBookOpen size={20} /></Link>
-                    <Link to="/" title="Settings"> <FiSettings size={20} /></Link>
-                    <Link to="/" title="Profile"> <FiUser size={20} /></Link>
-                    <Link to="/" title="Logout"> <FiLogOut size={20} /></Link>
-                </div>
-            </Title>
+            <Header />
 
             <Container>
-                <h1>Orders</h1>
-
                 <table>
                     <thead>
                         <tr>

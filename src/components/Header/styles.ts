@@ -16,7 +16,8 @@ export const Content = styled.div`
 
     h1 {
         line-height: 46px;
-        font-size: 20px;
+        font-size: 1.25rem;
+        margin-left: -0.5rem;
         color: var(--shape);
     }
 

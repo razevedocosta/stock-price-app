@@ -4,8 +4,6 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
 import api from '../../services/api';
 
-// import { PriceChartBox } from './styles';
-
 interface RepositoryParams {
     company: string;
 }

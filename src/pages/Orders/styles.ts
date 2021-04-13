@@ -41,7 +41,7 @@ export const Container = styled.div`
         border-spacing: 0 0.2rem;
 
         th {
-            color: var(--text-body);
+            color: var(--text-title);
             font-weight: 400;
             padding: 1rem;
             text-align: left;

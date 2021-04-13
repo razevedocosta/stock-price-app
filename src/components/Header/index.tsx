@@ -7,7 +7,9 @@ export function Header() {
     return (
         <Container>
             <Content>
-                <h1>Search Stock Price</h1>
+                <Link to="/dashboard">
+                    <h1>Search Stock Price</h1>
+                </Link>
 
                 <div>
                     <Link to="/orders" title="Orders"> <FiBookOpen size={20} /></Link>
