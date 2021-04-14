@@ -6,9 +6,10 @@ import outcomeImg from "../../assets/outcome.svg";
 import { FiCheckCircle } from 'react-icons/fi';
 import { Container, RadioBoxContainer, RadioBox } from "./styles";
 import { FormEvent, useState } from "react";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 
-import axios from "axios";
+import { useContext } from "react";
+import { OrdersContext } from "../../OrdersContext";
 
 interface NewOrderModalProps {
     isOpen: boolean;
@@ -20,28 +21,28 @@ interface CompanyParams {
 }
 
 export function NewOrderModal({ isOpen, onRequestClose }: NewOrderModalProps) {
+    const { createOrder } = useContext(OrdersContext);
+
     const [type, setType] = useState('buy');
-    const [quantity, setQuantity] = useState('');
+    const [quantity, setQuantity] = useState(0);
     const [price, setPrice] = useState(0);
     const [dateOrder, setDateOrder] = useState('');
 
-    const history = useHistory();
-
     const { params } = useRouteMatch<CompanyParams>();
-    const company = params.company;
+    const company = params.company; 
 
-    function handleCreateNewOrder(event: FormEvent) {
+    async function handleCreateNewOrder(event: FormEvent) {
         event.preventDefault();
-
-        const data = {
-            company, quantity, price, dateOrder, type
-        }
-
-        axios.post('http://localhost:3333/orders', data)
-        .then((response) => {
-            history.push('/dashboard');
-        });
         
+        await createOrder({
+            company, type, quantity, price, dateOrder,
+        })
+
+        setType('buy');
+        setQuantity(0);
+        setPrice(0);
+        setDateOrder('');
+        onRequestClose();
     }
 
     return (
@@ -59,7 +60,7 @@ export function NewOrderModal({ isOpen, onRequestClose }: NewOrderModalProps) {
                 <h2>New Order</h2>
 
                 <input placeholder="Company"
-                       value={company} onChange={event => setQuantity(event.target.value)} />
+                       value={company} />
 
                 <RadioBoxContainer>
                     <RadioBox type="button" onClick={() => {setType('buy');}}
@@ -76,7 +77,7 @@ export function NewOrderModal({ isOpen, onRequestClose }: NewOrderModalProps) {
                 </RadioBoxContainer>
 
                 <input placeholder="Quantity"
-                       value={quantity} onChange={event => setQuantity(event.target.value)} />
+                       value={quantity} onChange={event => setQuantity(Number(event.target.value))} />
 
                 <input placeholder="Price" type="number" 
                        value={price} onChange={event => setPrice(Number(event.target.value))} />

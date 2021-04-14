@@ -1,31 +1,12 @@
-import React from 'react';
-import axios from 'axios';
-
-import { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { OrdersContext } from '../../OrdersContext';
 
 import { Header } from '../../components/Header';
-import { Summary } from '../../components/Summary';
 
 import { Container } from './styles';
 
-interface OrderParams {
-    id: number;
-    company: string;
-    type: string;
-    quantity: number;
-    price: number;
-    dateOrder: string;
-}
-
 const Orders: React.FC = () => {
-    const [orders, setOrders] = useState<OrderParams[]>([]);
-
-    useEffect(() => {
-        axios.get('http://localhost:3333/orders')
-            .then((response) => {
-                setOrders(response.data);
-            });
-    }, []);
+    const { orders } = useContext(OrdersContext);
 
     return (
         <>
