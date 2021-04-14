@@ -42,7 +42,7 @@ export function Summary() {
                     <img src={incomeImg} alt="" />
                 </header>
 
-                <strong>US$ 2{summary.value}</strong>
+                <strong>US$ {summary.value}</strong>
             </div>
 
             <div className="highlight-background">
@@ -51,7 +51,7 @@ export function Summary() {
                     <img src={totalImg} alt="" />
                 </header>
 
-                <strong>7 %</strong>
+                <strong>{summary.total}</strong>
             </div>
         </Container>
     )
