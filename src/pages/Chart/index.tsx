@@ -4,6 +4,8 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
 import api from '../../services/api';
 
+const { TOKEN_GMAIL, TOKEN_HOTMAIL } = process.env;
+
 interface RepositoryParams {
     company: string;
 }
@@ -15,12 +17,15 @@ interface CompanyParams {
 }
 
 const PriceChart: React.FC = () => {
+  console.log(process.env);
     const [company, setRepository] = useState<CompanyParams[]>([]);
 
     const { params } = useRouteMatch<RepositoryParams>();
 
      useEffect(() => {
-        api.get(`stock/${params.company}/chart?token=sk_d04c921978824c95b7716113460f2d79`)
+        api.get(`stock/${params.company}/chart?token=pk_887b46f7980a48e08050a2f88f51e600
+
+        `)
           .then(response => {
             setRepository(response.data);
           });
@@ -45,10 +50,6 @@ const PriceChart: React.FC = () => {
         
         <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
       </AreaChart>
-
-      {/* {company.map(comp => (
-        <p>{comp.label} --| {comp.close}</p>
-      ))} */}
       </>
     );
 }

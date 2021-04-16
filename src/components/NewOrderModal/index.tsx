@@ -33,7 +33,7 @@ export function NewOrderModal({ isOpen, onRequestClose }: NewOrderModalProps) {
 
     async function handleCreateNewOrder(event: FormEvent) {
         event.preventDefault();
-        
+
         await createOrder({
             company, type, quantity, price, dateOrder,
         })
@@ -59,7 +59,7 @@ export function NewOrderModal({ isOpen, onRequestClose }: NewOrderModalProps) {
             <Container onSubmit={handleCreateNewOrder}>
                 <h2>New Order</h2>
 
-                <input placeholder="Company"
+                <input placeholder="Company" title="Company"
                        value={company} />
 
                 <RadioBoxContainer>
@@ -76,13 +76,13 @@ export function NewOrderModal({ isOpen, onRequestClose }: NewOrderModalProps) {
                     </RadioBox>
                 </RadioBoxContainer>
 
-                <input placeholder="Quantity"
+                <input placeholder="Quantity" title="Quantity"
                        value={quantity} onChange={event => setQuantity(Number(event.target.value))} />
 
-                <input placeholder="Price" type="number" 
+                <input placeholder="Price" title="Price"
                        value={price} onChange={event => setPrice(Number(event.target.value))} />
 
-                <input placeholder="Date"
+                <input placeholder="Date" title="Date"
                        value={dateOrder} onChange={event => setDateOrder(event.target.value)} />
 
                 <button type="submit"><FiCheckCircle /> Save</button>

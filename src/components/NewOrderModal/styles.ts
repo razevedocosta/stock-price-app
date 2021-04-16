@@ -9,9 +9,10 @@ export const Container = styled.form`
     }
 
     input {
+        display: block;
         width: 100%;
-        padding: 0 1.5rem;
-        height: 4rem;
+        padding: 0 1rem;
+        height: 3rem;
         border-radius: 0.25rem;
 
         border: 1px solid #d7d7d7;
@@ -32,7 +33,7 @@ export const Container = styled.form`
     button[type="submit"] {
         width: 100%;
         padding: 0 1.5rem;
-        height: 4rem;
+        height: 3rem;
         border-radius: 0.25rem;
 
         border: 0;
@@ -79,7 +80,7 @@ const colors = {
 }
 
 export const RadioBox = styled.button<RadioBoxProps>`
-    height: 4rem;
+    height: 3rem;
     border: 1px solid #d7d7d7;
     border-radius: 0.25rem;
 
@@ -87,9 +88,9 @@ export const RadioBox = styled.button<RadioBoxProps>`
     align-items: center;
     justify-content: center;
 
-    background: ${(props) => props.isActive ? 
-    transparentize(0.9, colors[props.activeColor]) : 
-    'transparent'};
+    background: ${(props) => props.isActive 
+        ? transparentize(0.9, colors[props.activeColor]) 
+        : 'transparent'};
 
     transition: border-color 0.2s;
 

@@ -47,15 +47,15 @@ const Company: React.FC = () => {
     const { params } = useRouteMatch<RepositoryParams>();
 
     useEffect(() => {
-        api.get(`stock/${params.company}/quote?token=sk_d04c921978824c95b7716113460f2d79`).then(response => {
+        api.get(`stock/${params.company}/quote?token=pk_887b46f7980a48e08050a2f88f51e600`).then(response => {
             setRepository(response.data);
         });
 
-        api.get(`stock/${params.company}/logo?token=sk_d04c921978824c95b7716113460f2d79`).then(response => {
+        api.get(`stock/${params.company}/logo?token=pk_887b46f7980a48e08050a2f88f51e600`).then(response => {
             setLogo(response.data);
         });
 
-        api.get(`stock/${params.company}/news?token=sk_d04c921978824c95b7716113460f2d79`).then(response => {
+        api.get(`stock/${params.company}/news?token=pk_887b46f7980a48e08050a2f88f51e600`).then(response => {
             setNews(response.data);
         });
     }, [params.company]);
@@ -121,7 +121,7 @@ const Company: React.FC = () => {
                 <div>
                     <strong>Historical Prices</strong>
 
-                    <Chart></Chart>
+                    {/* <Chart></Chart> */}
                 </div>
             </Card>
 

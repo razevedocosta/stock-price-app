@@ -82,7 +82,6 @@ export const CompanyInfo = styled.section`
 
             span {
                 display: inline-block;
-                width: 100px;
                 font-size: 1rem;
                 margin: 4px 0;
                 color: #462A99; //roxo
