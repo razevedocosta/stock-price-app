@@ -3,7 +3,7 @@
   Stock Price App
 </h1>
 
-<h4 align="center">Aplicação desenvolvida utilizando typescript/react para consultar informações sobre ações americanas</h4>
+<h4 align="center">Web application developed using react/typescript to find information about american stocks</h4>
 
 <p align="center">
   <a href="#como-executar">Como executar</a> •
