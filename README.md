@@ -10,8 +10,7 @@
   <a href="#a-desenvolver">A desenvolver</a>
 </p>
 
-## Link demo
-https://stock-price-app-five.vercel.app/
+**Link demo:** https://stock-price-app-five.vercel.app/
 
 ![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/login.png)
 
