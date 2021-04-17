@@ -18,12 +18,12 @@
 
 ![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/company.png)
 
-## Como executar
+## 🚀 Como executar
 - fazer um clone do projeto para o seu computador
 - no diretório raiz, executar **yarn install** para baixar todas as dependências
 - **yarn start** para rodar a aplicação e acessar pelo navegador
 
-## Funcionalidades
+## 💬 Funcionalidades
 - consulta à api externa (https://iexcloud.io/)
 - busca por ações e listagem de notícias
 - tratamento de erros do input
@@ -34,7 +34,7 @@
 - modal para cadastro de ordens de compra/venda
 - listagem de ordens a partir do arquivo db.json
 
-## A desenvolver
+## 🔧 A desenvolver
 - ajustes de layout para versão mobile (react native)
 - exibir preços atualizados, variação percentual, banner de cotação
 - selecionar intervalos para exibição no gráfico (dia, semana, mês, ano)
