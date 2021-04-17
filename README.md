@@ -4,6 +4,7 @@
 </h1>
 
 <h4 align="center">Aplicação desenvolvida utilizando typescript/react para consultar informações sobre ações americanas</h4>
+
 <p align="center">
   <a href="#como-executar">Como executar</a> •
   <a href="#funcionalidades">Funcionalidades</a> •
@@ -11,6 +12,8 @@
 </p>
 
 **Link demo:** https://stock-price-app-five.vercel.app/
+
+**Video demo:** 
 
 ![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/login.png)
 
