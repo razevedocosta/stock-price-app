@@ -13,13 +13,7 @@
 
 **Link demo:** https://stock-price-app-five.vercel.app/
 
-**Video demo:** 
-
-![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/login.png)
-
-![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/dashboard.png)
-
-![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/company.png)
+![](https://github.com/razevedocosta/stock-price-app/blob/master/src/assets/stock-price-2.gif)
 
 ## 🚀 Como executar
 - fazer um clone do projeto para o seu computador
