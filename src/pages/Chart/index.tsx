@@ -23,9 +23,7 @@ const PriceChart: React.FC = () => {
     const { params } = useRouteMatch<RepositoryParams>();
 
      useEffect(() => {
-        api.get(`stock/${params.company}/chart?token=pk_887b46f7980a48e08050a2f88f51e600
-
-        `)
+        api.get(`stock/${params.company}/chart?token=pk_887b46f7980a48e08050a2f88f51e600`)
           .then(response => {
             setRepository(response.data);
           });

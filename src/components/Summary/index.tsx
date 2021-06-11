@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import incomeImg from "../../assets/income.svg";
 import outcomeImg from "../../assets/outcome.svg";
 import totalImg from "../../assets/total.svg";
@@ -6,12 +6,19 @@ import { OrdersContext } from "../../OrdersContext";
 
 import { Container } from './styles';
 
+interface Company {
+    symbol: string;
+    companyName: string;
+    latestPrice: number;
+    logo: string;
+}
+
 export function Summary() {
     const { orders } = useContext(OrdersContext);
 
     const summary = orders.reduce((acc, order) => {
         if (order.type === 'buy') {
-            acc.coast += order.price;
+            acc.coast += order.price * order.quantity;
             acc.total += order.price;
         } else {
             acc.value += order.price;
@@ -24,6 +31,8 @@ export function Summary() {
         value: 0,
         total: 0,
     })
+
+
 
     return (
         <Container>
@@ -47,11 +56,11 @@ export function Summary() {
 
             <div className="highlight-background">
                 <header>
-                    <p>Percent</p>
+                    <p>Dolar</p>
                     <img src={totalImg} alt="" />
                 </header>
 
-                <strong>{summary.total}</strong>
+                <strong>US$ 5,314</strong>
             </div>
         </Container>
     )
