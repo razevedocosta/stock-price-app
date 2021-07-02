@@ -17,20 +17,12 @@
       "id": 2
     },
     {
-      "company": "PG",
-      "quantity": "10",
-      "price": 130,
-      "dateOrder": "07/04/2021",
-      "type": "buy",
-      "id": 3
-    },
-    {
       "company": "KO",
       "quantity": "3",
       "price": 51,
       "dateOrder": "06/04/2021",
       "type": "buy",
-      "id": 4
+      "id": 3
     },
     {
       "company": "ABNB",
@@ -38,7 +30,7 @@
       "price": 180,
       "dateOrder": "06/04/2021",
       "type": "buy",
-      "id": 5
+      "id": 4
     },
     {
       "company": "XOM",
@@ -46,7 +38,7 @@
       "price": 47,
       "dateOrder": "04/03/2021",
       "type": "buy",
-      "id": 6
+      "id": 5
     },
     {
       "company": "ABNB",
@@ -54,7 +46,7 @@
       "price": 132,
       "dateOrder": "06/05/2021",
       "type": "buy",
-      "id": 7
+      "id": 6
     }
   ]
 }

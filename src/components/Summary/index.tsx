@@ -6,15 +6,9 @@ import { OrdersContext } from "../../OrdersContext";
 
 import { Container } from './styles';
 
-interface Company {
-    symbol: string;
-    companyName: string;
-    latestPrice: number;
-    logo: string;
-}
-
 export function Summary() {
     const { orders } = useContext(OrdersContext);
+    const [dolar, setDolar] = useState('');
 
     const summary = orders.reduce((acc, order) => {
         if (order.type === 'buy') {
@@ -30,9 +24,21 @@ export function Summary() {
         coast: 0,
         value: 0,
         total: 0,
-    })
+    });
 
+    const url = "https://economia.awesomeapi.com.br/json/USD-BRL"
+        fetch(url).then((res)=>{
+            return res.json()
+        }).then((data)=>{
+            setDolar(data[0].high) 
+        })
 
+    // useEffect(() => {
+    //     axios.get("https://economia.awesomeapi.com.br/last/USD-BRL")
+    //     .then((response) => {
+    //         console.log(response.data)
+    //     })
+    // }, []);
 
     return (
         <Container>
@@ -51,7 +57,7 @@ export function Summary() {
                     <img src={incomeImg} alt="" />
                 </header>
 
-                <strong>US$ {summary.value}</strong>
+                <strong>US$ {summary.coast * Number(dolar)}</strong>
             </div>
 
             <div className="highlight-background">
@@ -59,8 +65,8 @@ export function Summary() {
                     <p>Dolar</p>
                     <img src={totalImg} alt="" />
                 </header>
-
-                <strong>US$ 5,314</strong>
+                
+                <strong>US$ {dolar}</strong>
             </div>
         </Container>
     )
